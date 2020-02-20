@@ -1,1 +1,43 @@
-<p>payment works!</p>
+<p *ngIf="!(this.generator_running$ | async)" class="turn-on-generator">Turn on signature generator to send payments</p>
+
+<form [formGroup]="new_payment_form" (ngSubmit)="onSubmitNewPayment()">
+    <label class="text">
+        <input type="text" placeholder="Payment" formControlName="payment" id="payment">
+        <p>Payment</p>
+        <p class="error" *ngIf="payment.errors?.required">Enter a payment reciever reference</p>
+    </label>
+    <label class="text">
+        <input type="number" placeholder="Amount" formControlName="amount">
+        <p>Amount</p>
+        <p class="error" *ngIf="amount.errors?.required">Enter an amount to send</p>
+        <p class="error" *ngIf="amount.errors?.invalidCurrency">Invalid currency</p>
+    </label>
+    <button type="submit" [class.outline]="!new_payment_form.valid" [disabled]="!new_payment_form.valid">&#65291;
+        Add</button>
+</form>
+
+<section class="payments">
+    <table *ngIf="(this.payments$ | async).length > 0; else noPayments">
+        <tr>
+            <th>Name</th>
+            <th>Amount</th>
+            <th>Code</th>
+            <th>Grid</th>
+        </tr>
+        <tr *ngFor="let payment of (this.payments$ | async); let i = index">
+            <td>{{payment.name}}</td>
+            <td>{{payment.amount}}</td>
+            <td>{{payment.signature?.code}}</td>
+            <td>{{i}}</td>
+        </tr>
+    </table>
+
+    <ng-template #noPayments>
+        <p class="no-payments">You haven't made any payments yet</p>
+    </ng-template>
+</section>
+
+<div class="code_part">
+    Your code now is:
+    <span>{{(current_signature$ | async)?.code}}</span>
+</div>

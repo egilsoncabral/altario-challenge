@@ -10,7 +10,6 @@ import { Signature } from 'src/app/models/data-types';
   styleUrls: ['./generator.component.css']
 })
 export class GeneratorComponent implements OnInit {
-  @Input() code: string = ''
 
   matrix_size = this.signatureService.matrix_size
   generator_interval = this.signatureService.generator_interval
