@@ -6,8 +6,8 @@
     </label>
     
     <div>
-        <button *ngIf="showButton" class="generator_button_stop" type="button" (click)="onToggleGenerator()">Stop</button>
-        <button *ngIf="!showButton" class="generator_button_active" type="button" (click)="onToggleGenerator()">Start</button>
+        <button *ngIf="generator_running$.value" class="generator_button_stop" type="button" (click)="onToggleGenerator()">Stop</button>
+        <button *ngIf="!generator_running$.value" class="generator_button_active" type="button" (click)="onToggleGenerator()">Start</button>
    </div>
 </div>
 

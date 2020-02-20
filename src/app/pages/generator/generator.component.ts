@@ -17,7 +17,6 @@ export class GeneratorComponent implements OnInit {
   generator_running$ = this.signatureService.generator_running$
   generator_timer$ = this.signatureService.generator_timer$
   current_signature$ = this.signatureService.current_signature$
-  showButton = true;
 
   current_signature: Signature | null = null
   prefered_char: string = ''
@@ -42,7 +41,6 @@ export class GeneratorComponent implements OnInit {
   }
 
   onToggleGenerator() {
-    this.showButton = !this.showButton;
     this.signatureService.setGeneratorRunning(!this.generator_running$.value)
   }
 
