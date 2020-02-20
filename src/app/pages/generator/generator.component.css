@@ -1,0 +1,63 @@
+
+div.top-ui {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+
+label {
+    text-align: center;
+}
+
+label .text input {
+    width: 100%;
+}
+
+label .checkbox {
+    margin-top: 15px;
+}
+
+label .text input {
+    max-width: 100px;
+    font-size: larger;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+table {
+    width: 100%;
+    margin-top: 30px;
+    table-layout: fixed;
+}
+
+table td {
+    height: 2em;
+    padding: 0;
+}
+
+td.coordinate {
+    color: black;
+    font-weight: bold;
+}
+
+hr.pulse-bar-ui {
+    margin-top: 10px;
+    border: none;
+    height: 4px;
+    background: red;
+}
+
+app-generator-live {
+    margin: auto;
+    display: block;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+app-current-code {
+    margin: auto;
+    display: block;
+    width: fit-content;
+    margin-top: 10px;
+}

@@ -1,0 +1,33 @@
+main {
+    margin: auto;
+    max-width: 600px;
+    padding: 20px 20px 50px 20px;
+}
+
+nav {
+    background-color: darkblue;
+    padding: 5px 0px;
+}
+
+nav ul {
+    margin: auto;
+    max-width: 600px;
+    display: block;
+    list-style: none;
+    display: flex;
+    padding: 0 20px;
+}
+
+nav a {
+    margin: 0;
+    padding: 10px 30px;
+    text-decoration: none;
+    font-size: larger;
+    font-weight: bold;
+    color: white;
+}
+
+nav a .active {
+    background: white;
+    color: rgb(6, 175, 0);
+}

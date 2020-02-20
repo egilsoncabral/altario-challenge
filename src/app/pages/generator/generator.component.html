@@ -1,0 +1,31 @@
+<!-- Top UI controls -->
+<div class="row top-ui">
+    <label class="text">
+        <p>Character</p>
+        <input #in_char type="text" maxlength="1" [value]="this.prefered_char"  >
+    </label>
+    
+    <div class="generator_add-button">
+        <button class="generator_button" type="button" (click)="onToggleGenerator()">Stop</button>
+   </div>
+</div>
+
+
+<!-- Signature matrix -->
+<table>
+    <tr>
+        <td></td>
+        <td *ngFor="let x of range(this.matrix_size.width)" class="coordinate"> {{x}} </td>
+    </tr>
+    <tr *ngFor="let y of range(this.matrix_size.height)">
+        <td class="coordinate"> {{y}} </td>
+        <td *ngFor="let x of range(this.matrix_size.width)" >
+            {{current_signature?.matrix?.getChar({x:x,y:y})}}
+        </td>
+    </tr>
+</table>
+
+
+<!-- Refresh pulse bar -->
+<hr class="pulse-bar-ui" [style.width.%]="refresh_bar_size$ | async">
+
