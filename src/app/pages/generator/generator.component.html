@@ -5,8 +5,9 @@
         <input #in_char type="text" maxlength="1" [value]="this.prefered_char"  >
     </label>
     
-    <div class="generator_add-button">
-        <button class="generator_button" type="button" (click)="onToggleGenerator()">Stop</button>
+    <div>
+        <button *ngIf="showButton" class="generator_button_stop" type="button" (click)="onToggleGenerator()">Stop</button>
+        <button *ngIf="!showButton" class="generator_button_active" type="button" (click)="onToggleGenerator()">Start</button>
    </div>
 </div>
 
@@ -26,6 +27,7 @@
 </table>
 
 
-<!-- Refresh pulse bar -->
-<hr class="pulse-bar-ui" [style.width.%]="refresh_bar_size$ | async">
-
+<div class="code_part">
+    Your code now is:
+    <span>{{(current_signature$ | async)?.code}}</span>
+</div>

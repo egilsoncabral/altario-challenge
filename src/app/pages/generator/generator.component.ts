@@ -1,4 +1,4 @@
-import { Component, OnInit, ElementRef, ViewChild } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, Input } from '@angular/core';
 import { SignatureService } from 'src/app/services/signature.service';
 import { map, filter, throttleTime } from 'rxjs/operators';
 import { fromEvent } from 'rxjs';
@@ -10,6 +10,7 @@ import { Signature } from 'src/app/models/data-types';
   styleUrls: ['./generator.component.css']
 })
 export class GeneratorComponent implements OnInit {
+  @Input() code: string = ''
 
   matrix_size = this.signatureService.matrix_size
   generator_interval = this.signatureService.generator_interval
@@ -17,18 +18,12 @@ export class GeneratorComponent implements OnInit {
   generator_running$ = this.signatureService.generator_running$
   generator_timer$ = this.signatureService.generator_timer$
   current_signature$ = this.signatureService.current_signature$
+  showButton = true;
 
   current_signature: Signature | null = null
   prefered_char: string = ''
 
-  // Size of the refresh bar UI, in %
-  refresh_bar_size$ = this.generator_timer$.pipe(
-    map(time_left => time_left / this.generator_interval * 100)
-  )
-
   @ViewChild('in_char', { static: true }) input_char_el: ElementRef
-
-
 
   constructor(public signatureService: SignatureService) {
   }
@@ -48,6 +43,7 @@ export class GeneratorComponent implements OnInit {
   }
 
   onToggleGenerator() {
+    this.showButton = !this.showButton;
     this.signatureService.setGeneratorRunning(!this.generator_running$.value)
   }
 

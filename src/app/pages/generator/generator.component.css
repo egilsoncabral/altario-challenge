@@ -1,9 +1,33 @@
-
 div.top-ui {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     margin-top: 20px;
+}
+
+.code_part {
+    margin-top: 10px;
+    padding: 10px 20px;
+    font-size: large;
+    width: fit-content;
+    font-weight: normal;
+    color: gray;
+    text-transform: uppercase;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.code_part span {
+    color: black;
+    font-weight: bold;
+}
+
+.generator_button_stop {
+    background-color: red;
+}
+
+.generator_button_active {
+    background-color: darkgreen;
 }
 
 label {
