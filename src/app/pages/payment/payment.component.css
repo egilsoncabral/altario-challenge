@@ -23,18 +23,18 @@ form {
     margin-top: 20px;
 }
 
-form label {
+label {
     width: 150px;
-    margin-right: 10px;
+    margin-right: 60px;
 }
 
-form button {
+button {
     height: fit-content;
-    align-self: flex-start;
+    align-self: flex-end;
     position: relative;
-    top: 20px;
+    top: 0px;
     font-size: small;
-    padding: 5px 15px;
+    padding: 7px 15px;
 }
 
 section.payments {

@@ -17,24 +17,22 @@
 </form>
 
 <section class="payments">
-    <table *ngIf="(this.payments$ | async).length > 0; else noPayments">
+    <table *ngIf="(this.payments$ | async).length > 0">
         <tr>
+            <th>ID</th>
             <th>Name</th>
             <th>Amount</th>
             <th>Code</th>
-            <th>Grid</th>
         </tr>
         <tr *ngFor="let payment of (this.payments$ | async); let i = index">
+            <td>{{i + 1}}</td>
             <td>{{payment.name}}</td>
             <td>{{payment.amount}}</td>
             <td>{{payment.signature?.code}}</td>
-            <td>{{i}}</td>
         </tr>
     </table>
 
-    <ng-template #noPayments>
-        <p class="no-payments">You haven't made any payments yet</p>
-    </ng-template>
+    
 </section>
 
 <div class="code_part">
